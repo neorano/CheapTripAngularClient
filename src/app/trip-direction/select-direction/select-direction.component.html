@@ -1,7 +1,7 @@
 <div class="mainContainer" [ngClass]="{'searchMode': mode === modes.SEARCH,
 'deliveryMode': mode === modes.DELIVERY}">
   <div class="message">
-    <h1 i18n @insertRemoveTrigger1>Discover the cheapest way <br />to get anywhere combining
+    <h1 i18n = "Long slogan@@longslogan" @insertRemoveTrigger1>Discover the cheapest way <br />to get anywhere combining
       plane,
       train, bus and rideshare</h1>
 
@@ -21,12 +21,12 @@
             <mat-autocomplete class="single-autocomplete" #auto1="matAutocomplete"
               (optionSelected)='optionSelected($event.option.value, "from")'>
               <!--    <mat-autocomplete #auto1="matAutocomplete"  >-->
-              <mat-option *ngFor="let start of startPointAutoComplete" [value]="start.name">
+              <mat-option *ngFor="let start of startPointAutoComplete" [value]="start.name" >
                 {{start.name}}
               </mat-option>
             </mat-autocomplete>
           </mat-form-field>
-          <span matTooltip="Remove StartPoint" class="material-icons" (click)="onCleanInput('start')">
+          <span class="material-icons" (click)="onCleanInput('start')">
            clear
           </span>
           <!--   <p *ngIf="directionForm.get('startPointControl').invalid && directionForm.get('startPointControl').touched"
@@ -64,8 +64,7 @@
             </mat-autocomplete>
 
           </mat-form-field>
-          <span matTooltip="Remove EndPoint" (click)="onCleanInput('end')" class="material-icons">
-            clear
+          <span (click)="onCleanInput('end')" class="material-icons">clear
           </span>
         </div>
 
@@ -77,9 +76,9 @@
       </section>
     </div>
     <div class="actions">
-      <button mat-flat-button color="accent" type="reset" (click)="cleanForm()">Clear form</button>
+      <button mat-flat-button color="accent" type="reset" (click)="cleanForm()" i18n = "Clear form@@clearform">Clear form</button>
       <button mat-flat-button color="primary" #sBtn [disabled]="endPoint.name.length < 1 || startPoint.name.length < 1"
-        type="submit">Let's go</button>
+        type="submit" i18n = "letsgo@@letsgo">Let's go</button>
     </div>
 
   </form>

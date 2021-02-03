@@ -4,7 +4,13 @@
   "newProjectRoot": "projects",
   "projects": {
     "cheapTrip": {
-     
+      "i18n": { 
+        "sourceLocale": "en-US", 
+        "locales": { 
+          "ru": "src/i18n/messages.ru.xlf",
+          "ua": "src/i18n/messages.ua.xlf"
+        } 
+      },
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -23,7 +29,7 @@
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
-            "localize": false,
+            "localize": false,   
             "aot": true,
             "assets": [
               "src/favicon.ico",
@@ -37,8 +43,13 @@
           },
           "configurations": {
            
-
-
+            "ru": { 
+              "localize": ["ru"] 
+            },
+            "ua": { 
+              "localize": ["ua"] 
+            },
+            
             "production": {
               "fileReplacements": [
                 {
@@ -80,6 +91,9 @@
             },
             "ru": {
               "browserTarget": "cheapTrip:build:ru"
+            },
+            "ua": {
+              "browserTarget": "cheapTrip:build:ua"
             }
           }
         },

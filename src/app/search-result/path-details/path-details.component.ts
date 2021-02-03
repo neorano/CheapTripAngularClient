@@ -1,3 +1,4 @@
+
 import { Input } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
 import { IPath } from '../../service/http.service';
@@ -18,5 +19,43 @@ price: number;
 
   ngOnInit(): void {
 
+  }
+
+  openTransport (transport:string){
+    let url:string='';
+    switch(transport) { 
+      case "Flight": { 
+        url = "http://Skyscanner.com";
+         break; 
+      } 
+      case "Bus": { 
+        url = "http://bus.tickets.ua";
+         break; 
+      } 
+      case "Train": { 
+        url = "http://gd.tickets.ua";
+         break; 
+      } 
+      case "Car Ferry": { 
+        url = "http://www.aferry.com";
+         break; 
+      } 
+      case "Ferry": { 
+        url = "http://www.aferry.com";
+         break; 
+      } 
+       case "Ride Share": { 
+        url = "http://BlaBlaCar.com";
+         break; 
+      } 
+      default: { 
+         url='';
+         break; 
+      } 
+   } 
+    if (url!=''){
+      // window.open(url, "_blank");
+      window.open(url, "_blank");
+    }
   }
 }

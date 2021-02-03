@@ -23,8 +23,15 @@ import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { LinksComponent } from './links/links.component';
+import localeRu from '@angular/common/locales/ru';
+import localeUa from '@angular/common/locales/uk';
+import { registerLocaleData } from '@angular/common';
 
+// the second parameter 'fr-FR' is optional
+registerLocaleData(localeRu, 'ru');
+registerLocaleData(localeUa, 'ua');
 @NgModule({
+  
   declarations: [AppComponent, HeaderComponent, NoPageComponent, ErrorComponent, LandingComponent, DataTableComponent, LinksComponent],
   imports: [
     BrowserModule,
