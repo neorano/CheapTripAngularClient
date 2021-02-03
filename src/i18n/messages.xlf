@@ -52,11 +52,25 @@
         </context-group>
         <note priority="1" from="description">Long slogan</note>
       </trans-unit>
+      <trans-unit id="d5e0dbc9fd4651759df915cdc6ba26fe3f17475f" datatype="html">
+        <source>From</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/trip-direction/select-direction/select-direction.component.html</context>
+          <context context-type="linenumber">18</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="63c9c3aa536dbd11120ae8feab62186c47838028" datatype="html">
+        <source>To</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/trip-direction/select-direction/select-direction.component.html</context>
+          <context context-type="linenumber">57</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="clearform" datatype="html">
         <source>Clear form</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/trip-direction/select-direction/select-direction.component.html</context>
-          <context context-type="linenumber">80</context>
+          <context context-type="linenumber">79</context>
         </context-group>
         <note priority="1" from="description">Clear form</note>
       </trans-unit>
@@ -64,15 +78,15 @@
         <source>Let&apos;s go</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/trip-direction/select-direction/select-direction.component.html</context>
-          <context context-type="linenumber">82</context>
+          <context context-type="linenumber">81</context>
         </context-group>
         <note priority="1" from="description">letsgo</note>
       </trans-unit>
       <trans-unit id="priceAndDurationForFlight" datatype="html">
-        <source>price and duration include transfer to/from airport   </source>
+        <source>price and duration include transfer to/from airport</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/search-result/path-details/path-details.component.html</context>
-          <context context-type="linenumber">31</context>
+          <context context-type="linenumber">32</context>
         </context-group>
       </trans-unit>
       <trans-unit id="loading" datatype="html">

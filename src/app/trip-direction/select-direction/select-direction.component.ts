@@ -225,13 +225,13 @@ export class SelectDirectionComponent implements OnInit {
       startPointControl: new FormControl('', [
         this.patternValid({
           pattern: /[a-zA-Z0-9\-\s]/,
-          msg: 'Sorry, only Latin names are allowed',
+          msg: $localize`:@@onlyLatinAllowed:Sorry, only Latin names are allowed`,
         }),
       ]),
       endPointControl: new FormControl('', [
         this.patternValid({
           pattern: /[a-zA-Z0-9\-\s]/,
-          msg: 'Sorry, only Latin names are allowed',
+          msg: $localize`:@@onlyLatinAllowed:Sorry, only Latin names are allowed`,
         }),
       ]),
     });
