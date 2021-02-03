@@ -22,6 +22,7 @@ price: number;
   }
 
   openTransport (transport:string){
+    //function for opening site of corresponding transportation type
     let url:string='';
     switch(transport) { 
       case "Flight": { 

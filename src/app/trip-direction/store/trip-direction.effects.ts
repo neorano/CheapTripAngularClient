@@ -17,6 +17,7 @@ import { HttpClient, HttpErrorResponse, HttpResponse } from '@angular/common/htt
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import * as fromApp from '../../store/app.reducer';
+import {SelectService} from "../select-direction/select.service"
 
 enum Icons {
   FLIGHT = `<span class="material-icons">
@@ -46,6 +47,9 @@ enum Icons {
   SHUTTLE = `<span class="material-icons">
   shuttle
   </span>`,
+  FERRY = `<span class="material-icons">
+  directions_boat
+  </span>`
 }
 
 const PATHMAP = new Map<string, { type: string }>();
@@ -67,13 +71,14 @@ PATHMAPDETAILED.set('Ride Share', Icons.CAR);
 PATHMAPDETAILED.set('Car Drive', Icons.CAR);
 PATHMAPDETAILED.set('Walk', Icons.ONFOOT);
 PATHMAPDETAILED.set('Town Car', Icons.CAR);
-PATHMAPDETAILED.set('Car Ferry', Icons.CAR);
+PATHMAPDETAILED.set('Car Ferry', Icons.FERRY);
 PATHMAPDETAILED.set('Shuttle', Icons.SHUTTLE);
 PATHMAPDETAILED.set('Taxi', Icons.TAXI);
 
 @Injectable()
 export class TripDirectionEffects {
   constructor(
+    private selectService:SelectService,
     private actions$: Actions,
     private sanitizer: DomSanitizer,
     private http: HttpClient,
@@ -104,7 +109,7 @@ export class TripDirectionEffects {
     withLatestFrom(this.store$.select('directions')),
     switchMap((request: Array<any>) => {
       let url = '';
-
+//this is url for spring server
       if (request[1].currentServer === 'server68') {
         url =
           environment.url68 +
@@ -123,7 +128,14 @@ export class TripDirectionEffects {
           '&search_name=' +
           encodeURIComponent(request[0].payload.name);
       }
-     
+        //here is url for a Tomcat server
+       // url = this.selectService.getUrl('from',request[0].payload.name);
+        url=  environment.urlTomCat +
+        'CheapTrip/getLocations?type=' +
+        '0' +
+        '&search_name=' +
+        encodeURIComponent(request[0].payload.name);
+
       return this.http
         .get<any>(url, { observe: 'response' })
         .pipe(
@@ -151,6 +163,7 @@ export class TripDirectionEffects {
     withLatestFrom(this.store$.select('directions')),
     switchMap((request: Array<any>) => {
       let url = '';
+      // lower is url for a spring server
       if (request[1].currentServer === 'server68') {
         url =
           environment.url68 +
@@ -167,6 +180,14 @@ export class TripDirectionEffects {
           request[1].endPoint.id;
       }
 
+      //here is url for a Tomcat server to be fixed
+     // url = this.selectService.getUrl('from','to')
+    
+     url=  environment.urlTomCat +
+     'CheapTrip/getRoute?from=' +
+     request[1].startPoint.id +
+     '&to=' +
+     request[1].endPoint.id;
       return this.http.get(url, { observe: 'response' }).pipe(
         map((res) => {
           console.log(res);
@@ -263,6 +284,7 @@ export class TripDirectionEffects {
   }
 
   private transformTime(minutes: number): string {
+    //to be translated or fixed
     const days = Math.floor(minutes / 60 / 24);
     const dayStr = days < 1 ? '' : days + 'd';
     const hours = Math.floor(minutes / 60 - days * 24);
