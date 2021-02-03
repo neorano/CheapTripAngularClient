@@ -2,6 +2,18 @@
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
   <file source-language="en-US" datatype="plaintext" original="ng2.template">
     <body>
+    <trans-unit id="onlyLatinAllowed" datatype="html">
+        <source>Sorry, only Latin names are allowed</source>
+        <target>Вибачте. Поки що ми працюємо тільки з латинськими символами. Але обіцяємо виправитися незабаром.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/trip-direction/select-direction/select-direction.component.ts</context>
+          <context context-type="linenumber">228</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/trip-direction/select-direction/select-direction.component.ts</context>
+          <context context-type="linenumber">234</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="mainSlogan" datatype="html">
         <source>CHEAP TRIP. PAY LESS, VISIT MORE!</source>
         <target>CHEAP TRIP. Плати менше, відвідай більше</target>

@@ -130,11 +130,13 @@ export class TripDirectionEffects {
       }
         //here is url for a Tomcat server
        // url = this.selectService.getUrl('from',request[0].payload.name);
+       if (environment.mainServer=="tomcat"){
         url=  environment.urlTomCat +
         'CheapTrip/getLocations?type=' +
         '0' +
         '&search_name=' +
         encodeURIComponent(request[0].payload.name);
+      }
 
       return this.http
         .get<any>(url, { observe: 'response' })
@@ -182,12 +184,13 @@ export class TripDirectionEffects {
 
       //here is url for a Tomcat server to be fixed
      // url = this.selectService.getUrl('from','to')
-    
+     if (environment.mainServer=="tomcat"){
      url=  environment.urlTomCat +
      'CheapTrip/getRoute?from=' +
      request[1].startPoint.id +
      '&to=' +
      request[1].endPoint.id;
+     }
       return this.http.get(url, { observe: 'response' }).pipe(
         map((res) => {
           console.log(res);
