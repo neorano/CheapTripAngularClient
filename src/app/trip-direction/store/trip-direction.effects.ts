@@ -198,11 +198,6 @@ export class TripDirectionEffects {
 
           resultPathArr = this.transformObject(res.body as IRecievedRouts[]);
 
-          
-
-
-
-
           const endPoints = {
             from: request[1].startPoint,
             to: request[1].endPoint,
@@ -289,11 +284,11 @@ export class TripDirectionEffects {
   private transformTime(minutes: number): string {
     //to be translated or fixed
     const days = Math.floor(minutes / 60 / 24);
-    const dayStr = days < 1 ? '' : days + 'd';
+    const dayStr = days < 1 ? '' : days + $localize`:@@days_letter:d`;
     const hours = Math.floor(minutes / 60 - days * 24);
-    const hourStr = hours < 1 ? '' : hours + 'h';
+    const hourStr = hours < 1 ? '' : hours + $localize`:@@hours_letter:h`;
     const min = minutes - days * 24 * 60 - hours * 60;
-    const minStr = min + 'min';
+    const minStr = min +$localize`:@@minutes_letters:min`;
 
     return dayStr + ' ' + hourStr + ' ' + minStr;
   }

@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  mainServer:"spring",   // "tomcat "or "spring"
+  mainServer:"tomcat",   // "tomcat "or "spring"
   url68: 'http://3.18.167.68:8080/',
   url104:  'http://3.18.167.68:8080/',
   urlTomCat: 'http://ec2-3-134-113-37.us-east-2.compute.amazonaws.com:8080/'

@@ -21,8 +21,7 @@ price: number;
 
   }
 
-  openTransport (transport:string){
-    //function for opening site of corresponding transportation type
+  getTransportUrl (transport:string){
     let url:string='';
     switch(transport) { 
       case "Flight": { 
@@ -53,7 +52,13 @@ price: number;
          url='';
          break; 
       } 
-   } 
+   }
+   return url;
+  }
+
+  openTransport (transport:string){
+    //function for opening site of corresponding transportation type
+     let url = this.getTransportUrl(transport);
     if (url!=''){
       // window.open(url, "_blank");
       window.open(url, "_blank");
