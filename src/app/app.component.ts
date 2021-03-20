@@ -24,6 +24,7 @@ export class AppComponent implements OnInit {
   
   constructor(private dialog: MatDialog) {}
   ngOnInit(): void {
+  
     console.log(this.myBrowser());
    console.log(this.getBrowserVersion());
 

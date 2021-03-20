@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { Observable, of } from 'rxjs';
+import { environment } from '../../environments/environment';
 
 const URL = 'MY_URL';
 const PATHMAP = new Map();
@@ -92,6 +93,15 @@ export class HttpService {
     private router: Router,
     private sanitizer: DomSanitizer
   ) {}
+
+
+  getUserCountry(){
+    let url="https://api.hostip.info/country.php";
+    // let url="http://ip-api.com/json/";
+    return this.http.get(url ,{responseType: 'text'});
+ 
+  }
+
 
   getAutoCompleteData(data: string, type: string): Observable<string[]> {
     const address =
@@ -186,5 +196,34 @@ export class HttpService {
       return newMap;
     });
     return newMap;
+  }
+
+
+  public getAllEnLocationsTomcat():Observable<any> {
+    let url=  environment.urlTomCat +
+    'CheapTrip/getLocations?type=' +
+    '0' +
+    '&search_name=' +
+    '';
+    let locations;
+    this.http.get(url).subscribe( data =>{
+      locations= data;
+      console.log ("ru locations received");
+    }
+    );
+    console.log ("ru locations returned");
+    return locations;
+
+  }
+public getAllRuLocationsTomcat():Observable<any> {
+    let url=  environment.urlTomCat +
+    'CheapTrip/getLocations?type=' +
+    '0' +
+    '&search_name=' +
+    ''+
+    '&language_name=ru';
+
+    return this.http.get(url, { observe: "response" });
+    
   }
 }

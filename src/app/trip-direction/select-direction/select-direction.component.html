@@ -1,9 +1,10 @@
+
+
 <div class="mainContainer" [ngClass]="{'searchMode': mode === modes.SEARCH,
 'deliveryMode': mode === modes.DELIVERY}">
   <div class="message">
-    <h1 i18n = "Long slogan@@longslogan" @insertRemoveTrigger1>Discover the cheapest way <br />to get anywhere combining
-      plane,
-      train, bus and rideshare</h1>
+    <h1 class="LongSlogan" i18n = "Long slogan@@longslogan" @insertRemoveTrigger1>Find most beneficial and unusual routes between cities with airports,
+       combining flight, train, bus, ferry and rideshare.</h1>
 
   </div>
   <form [formGroup]="directionForm" novalidate (ngSubmit)="onSubmit()">
@@ -22,7 +23,7 @@
               (optionSelected)='optionSelected($event.option.value, "from")'>
               <!--    <mat-autocomplete #auto1="matAutocomplete"  >-->
               <mat-option *ngFor="let start of startPointAutoComplete" [value]="start.name" >
-                {{start.name}}
+                {{start.name}}<span *ngIf="start.country !== undefined">,{{start.country}}</span>
               </mat-option>
             </mat-autocomplete>
           </mat-form-field>
@@ -77,9 +78,11 @@
     </div>
     <div class="actions">
       <button mat-flat-button color="accent" type="reset" (click)="cleanForm()" i18n = "Clear form@@clearform">Clear form</button>
-      <button mat-flat-button color="primary" #sBtn [disabled]="endPoint.name.length < 1 || startPoint.name.length < 1"
+      <button mat-flat-button color="primary" style="color: white;"
+       #sBtn [disabled]="endPoint.name.length < 1 || startPoint.name.length < 1"
         type="submit" i18n = "letsgo@@letsgo">Let's go</button>
     </div>
 
   </form>
 </div>
+

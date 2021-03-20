@@ -16,7 +16,7 @@
       </trans-unit>
       <trans-unit id="mainSlogan" datatype="html">
         <source>CHEAP TRIP. PAY LESS, VISIT MORE!</source>
-        <target>CHEAP TRIP. Плати менше, відвідай більше</target>
+        <target>CheapTrip. Плати менше, відвідай більше!</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/app.component.html</context>
           <context context-type="linenumber">14</context>
@@ -60,11 +60,8 @@
         <note priority="1" from="description">no page</note>
       </trans-unit>
       <trans-unit id="longslogan" datatype="html">
-        <source>Discover the cheapest way <x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br/&gt;"/>to get anywhere combining
-      plane,
-      train, bus and rideshare</source>
-      <target>Знайдіть найдешевший спосіб <x id = "LINE_BREAK" ctype = "lb" equiv-text ="&lt;br/&gt;"/> 
-      дістатися з міста в місто, поєднуючи літак, потяг, автобус і спільні поїздки на автомобілі</target>
+       
+      <target>Знайдіть найдешевший спосіб дістатися з міста в місто, поєднуючи літак, потяг, автобус і спільні поїздки на автомобілі</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/trip-direction/select-direction/select-direction.component.html</context>
           <context context-type="linenumber">4</context>
